@@ -1,0 +1,172 @@
+
+/* Remise à 0 des marges */
+
+html, body, body div, span, footer, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+
+/* Mise en page */
+
+.inline {
+	display:inline-block;
+}
+
+html {
+	background-color:#111111;
+	color:white;
+	font-family:'Open sans', sans-serif;
+}
+
+header{
+	background-color:rgba(0, 0, 0, 1);
+	color:white;
+	position:fixed;
+	width:100%;
+}
+
+body {
+	background-image: url("D1.png");
+	
+	webkit-animation-name:diapo1;
+	webkit-animation-duration:5s;
+	webkit-animation-timing-function:linear;
+	webkit-animation-iteration-count:infinite;
+	webkit-animation-direction:normal;
+	
+	moz-animation-name:diapo1;
+	moz-animation-duration:5s;
+	moz-animation-timing-function:linear;
+	moz-animation-iteration-count:infinite;
+	moz-animation-direction:normal;
+	
+	animation-name:diapo1;
+	animation-duration:5s;
+	animation-timing-function:linear;
+	animation-iteration-count:infinite;
+	animation-direction:normal;
+	background-size:contain;
+}
+
+#Liste {
+	position:absolute;
+	background-color:rgba(0, 0, 0, 0);
+	margin-left:-10px;
+	font-style:bold;
+	font-size:25px;
+	font-size:20;
+	top:30px;
+	right:30px;
+}
+
+#Liste > ul > li{
+	list-style-type:none;
+	display:inline;
+	font-style:bold;
+	padding:8px;
+	font-size:20px;
+}
+
+#Liste > ul > li > a{
+	text-decoration:none;
+	color:#ffffff;
+	outline:50px;
+}
+
+.txtpage {
+	padding:35px;
+	background-repeat:no-repeat;
+	background-size:contain;
+	font-size:35px;
+	padding-bottom:120px;
+	padding-top:180px;
+	text-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.txtpage > p {
+	font-size: 25px;
+}
+
+.txtpage2 {
+	text-align:center;
+	text-transform:uppercase;
+	padding:15px;
+	background-color:black;
+	letter-spacing:2px;
+	word-spacing:4px;
+	line-height:28px;
+	padding:50px;
+}
+
+.txtpage2 > p{
+	font-family:sans-serif;
+}
+
+.txtpage3 {
+	color:black;
+	padding:15px;
+	background-color:#ddeeff;
+	letter-spacing:1px;
+	word-spacing:3px;
+	line-height:24px;
+	padding:50px;
+}
+
+.txtpage3 > p {
+	width:50%;
+}
+
+h1 {
+	padding:15px;
+	font-size:50px;
+}
+h2 {
+	padding-bottom:20px;
+}
+
+footer {
+	background-color:#111111;
+	padding:40px;
+	color:white;
+}
+	
+footer > ul > li > a {
+	color:#ffffff;
+}
+
+input[type="submit"] {
+	font-size:30px;
+	border-radius:30px;
+	border-style:solid;
+	border-width:3px;
+	border-color:white;
+	background-color:black;
+	color:white;
+	padding:5px;
+	padding-left:30px;
+	padding-right:30px;
+	margin-left:13px;
+	margin-right:13px;
+}
+
+.submitbtn {
+	padding-top:30px;
+}
+
+.transition {
+	margin: 0 auto;
+	width: 100%;
+	height:5px;
+	background-color:#111111;
+
+}
+
+@-webkit-keyframes diapo1{
+	0%{background-image: url("D1.png")}
+	33%{background-image: url("D2.png")}
+	66%{background-image: url("D3.png")}
+	
+}
+

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>AxDryM</title>
+		<link rel="stylesheet" href="spemath.css"/>
+		<meta charset="utf-8"/>
+	</head>
+	<header>
+		<div id="Liste">
+			<ul align="right">
+				<li><a href="index.html">Accueil</a></li>
+				<li><a href="spemath.html">SpeMath</a></li>
+				<li><a href="#">Plus tard</a></li>
+				<li><a href="#">Plus tard</a></li>
+			</ul>
+		</div>
+		<p id="flecheheader">➤</p>
+	</header>
+	<div class="decalage">
+	
+	<body>
+		<div class="Exercice">
+			<h2>Spe math | Exercice congruence</h2>
+			<p>Enoncé :</p></br>
+			<p id="Enoncé">Vide</p></br>
+			<p>Corrigé :</p></br>
+			<p id="Corrigé"</p>Vide</p></br>
+		</div>
+	</body>
+	
+	<footer>
+		<ul>
+			<li><a href="#">En savoir plus</a></li>
+			<li><a href="#">Nous contacter</a></li>
+			<li><a href="#">Mentions légales</a></li>
+			<li><a href="#">Nos conditions d'utilisation</a></li>
+	</footer>
+	<div id="panel" class="panel">
+		<button>Corrigé</button>
+		<button>Nouvel exo</button>
+	</div>
+
+		<script type="text/javascript">
+
+			var doStop = 0;
+			var forcestop = false;
+			var expIntCh = 1;
+			var nbr = Math.floor(Math.random() * 20) + 10;
+			var expo = Math.floor(Math.random() * 3000) + 100;
+			var modulo = Math.floor(Math.random() * 12) + 2;
+
+			var énoncé = "Donner le reste de la division euclidienne de " + nbr + "^" + expo + " modulo " + modulo;
+			var textCorrigé = document.getElementById("Corrigé");
+
+			var Int = parseInt(nbr/modulo);
+			var Int2 = parseInt(nbr - Int*modulo);
+			var IntCh = Int2;
+
+			var Eucl1 = (nbr + " = " + Int + " x " + modulo + " + " + Int2);
+			var Etp1 = Number("4");
+
+			textCorrigé.innerHTML = Eucl1;
+			textCorrigé.appendChild(document.createElement("br"));
+
+			function nl () {
+			textCorrigé.appendChild(document.createElement("br"));
+			}
+			function wrcr () {
+			textCorrigé.appendChild(document.createTextNode(Int2 + "^" + expIntCh + " ≡ " + IntCh + " [" + modulo + "]"));
+			}
+			document.getElementById("Enoncé").innerHTML = énoncé;
+
+			do {
+				doStop = 0;
+				IntCh = Math.pow(Int2, expIntCh);
+				nl();
+				wrcr();
+				if (IntCh == 0 || IntCh == -1 || IntCh == 1) {
+					doStop = 1;
+				};
+				if (doStop == 0) {
+					IntCh -= modulo;
+					if (IntCh == -1 || IntCh == 0) {
+						doStop = 1;
+					} else {
+						IntCh += modulo;
+					}
+				}
+				if (doStop == 0) {
+					IntCh = Number(IntCh) - ((Number(modulo) * (parseInt(Number(IntCh)/Number(modulo)))))
+				};
+				nl();
+				wrcr();
+				nl();
+				expIntCh += 1;
+				if (expIntCh == 12) {
+					forcestop = true;
+					window.location.reload(false);
+				};
+				} while (IntCh != -1 && IntCh != 0 && IntCh != 1 && forcestop == false);
+			
+			if (expIntCh < 3) {
+				window.location.reload(false);
+			}
+
+			nl()
+
+			var expInt = parseInt(expo / (expIntCh - 1));
+			var expInt2 = expo - expInt * (expIntCh - 1);
+			var nbrfinal = (Math.pow(IntCh, (expIntCh -1)) * (Math.pow (Int2, expInt2)));
+
+			textCorrigé.appendChild(document.createTextNode(expo + " = " + expInt + " x " + (expIntCh - 1) + " + " + expInt2));
+			nl();
+			nl();
+			textCorrigé.appendChild(document.createTextNode(nbr + "^" + expo + " ≡ (" + Int2 + "^" + (expIntCh - 1) + ")^" + expInt + " x " + Int2 + "^" + expInt2 + " [" + modulo + "]"));
+			nl();
+			textCorrigé.appendChild(document.createTextNode(nbr + "^" + expo + " ≡ " + Math.pow(IntCh, ((expIntCh -1) * expInt2)) + " x " + Int2 + "^" + expInt2 + " [" + modulo + "]"));
+			nl();
+			textCorrigé.appendChild(document.createTextNode(nbr + "^" + expo + " ≡ " + (nbrfinal - (parseInt(nbrfinal/modulo) * modulo)) + " [" + modulo + "]"));
+			var resultat = (nbrfinal - (parseInt(nbrfinal/modulo) * modulo));
+			nl();
+			nl();
+			textCorrigé.appendChild(document.createTextNode("Le reste de la division euclidienne de " + nbr + "^" + expo + " par " + modulo + " est " + resultat + "."));
+		</script>
+	</div>
+</html>
